@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Dynamic Word Clouds - Given names in Vienna, 2006 to 2014</title>
+    <script type="text/javascript" src="js/d3.js"></script>
+    <script type="text/javascript" src="js/dwc.js"></script>
+    <script type="text/javascript" src="js/dwc_ui.js"></script>
+    <script type="text/javascript" src="data/data.js"></script>
+</head>
+
+<body>
+    <center>
+        <a id="anchorElement" style="display:none"></a>
+        <p>
+            <input type="radio" id="colorRot" name="visualizationSelect" onclick="setColAndRot();" checked autocomplete="off">
+            <label for="colorRot">Color and Rotation</label>
+            <input type="radio" id="colOnly" name="visualizationSelect" onclick="setColOnly();" autocomplete="off">
+            <label for="colOnly">Color only</label>
+            <input type="radio" id="rotOnly" name="visualizationSelect" onclick="setRotOnly();" autocomplete="off">
+            <label for="rotOnly">Rotation only</label>
+            <input type="radio" id="none" name="visualizationSelect" onclick="setNone();" autocomplete="off">
+            <label for="RotOnly">Only Size</label>
+        </p>
+        <script type="text/javascript">
+        dwc.load();
+
+        function setNone() {
+            console.log("set size only!");
+            dwc.set(3);
+        }
+
+        function setRotOnly() {
+            console.log("set rot only!");
+            dwc.set(2);
+        }
+
+        function setColOnly() {
+            console.log("set col only!");
+            dwc.set(1);
+        }
+
+        function setColAndRot() {
+            console.log("set col and rot!");
+            dwc.set(0);
+        }
+        </script>
+    </center>
+</body>
+
+</html>
