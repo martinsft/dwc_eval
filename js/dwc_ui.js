@@ -136,12 +136,15 @@
     dwc_ui.prototype.dragStarted = function(d) {
 
         console.log("drag start!");
-        dragged = true;
-        animationToggle = false;
-
-        lastMouseX = d3.event.x;
-        outSidePos = parseFloat(d3.select(this).attr("cx"));
-        d3.select(this).raise().classed("active", true);
+        if (animationToggle) {
+            dragged = false;
+            animationToggle = false;
+        } else {
+            dragged = true;
+            lastMouseX = d3.event.x;
+            outSidePos = parseFloat(d3.select(this).attr("cx"));
+            d3.select(this).raise().classed("active", true);
+        }
     }
 
     dwc_ui.prototype.dragged = function(d) {
