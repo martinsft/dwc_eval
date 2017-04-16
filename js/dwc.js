@@ -35,14 +35,11 @@
     // load an existing wordcloud JSON file
     dwc.prototype.load = function() {
 
-        console.log("Testing parsing:");
-
         words = wordsFull;
 
-        console.log("result:");
-        console.log(words);
+        time = timePointLabels.length - 1;
 
-        svg = this.generateSVG();
+        var svg = this.generateSVG();
         dwc_ui.create(w, h, wordShapes, svg, time, words, timePointLabels, maxRotationDeg);
 
         this.setTime(timePointLabels.length - 1);
@@ -65,6 +62,7 @@
         d3.select("svg").remove();
         svg = this.generateSVG();
         dwc_ui.create(w, h, wordShapes, svg, time, words, timePointLabels, maxRotationDeg);
+
         this.setTime(time);
     }
 
@@ -76,13 +74,7 @@
         console.log(words === null);
         console.log("starting SVG generation...");
 
-        var body = d3.select("body")
-            .selectAll("div")
-            .enter()
-            .append("div");
-
-        var svg = d3.select("body")
-            .append("center")
+        var svg = d3.select("#dwc")
             .append("svg")
             .attr("width", w)
             .attr("height", h);
@@ -103,7 +95,7 @@
             })
             .attr("text-anchor", "middle")
             .attr("transform", function(d) {
-                return "rotate(" + d.c[0] * 30 + " " + d.x[0] + ", " + d.y[0] + ")";
+                return "rotate(" + d.c[0] * d.c[0] * 30 + " " + d.x[0] + ", " + d.y[0] + ")";
             })
             .attr("x", function(d) {
                 return d.x[0];

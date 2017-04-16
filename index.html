@@ -12,16 +12,21 @@
 
 <body>
     <center>
-        <a id="anchorElement" style="display:none"></a>
+        <div id="dwc"></div>
         <p>
             <input type="radio" id="colorRot" name="visualizationSelect" onclick="setColAndRot();" checked autocomplete="off">
-            <label for="colorRot">Color and Rotation</label>
+            <label for="colorRot" style="margin-right:10px">Color and Rotation</label>
             <input type="radio" id="colOnly" name="visualizationSelect" onclick="setColOnly();" autocomplete="off">
-            <label for="colOnly">Color only</label>
+            <label for="colOnly" style="margin-right:10px">Color only</label>
             <input type="radio" id="rotOnly" name="visualizationSelect" onclick="setRotOnly();" autocomplete="off">
-            <label for="rotOnly">Rotation only</label>
+            <label for="rotOnly" style="margin-right:10px">Rotation only</label>
             <input type="radio" id="none" name="visualizationSelect" onclick="setNone();" autocomplete="off">
             <label for="RotOnly">Only Size</label>
+        </p>
+            <b>The 30 most popular given names in Vienna from 2006 to 2014.</b>
+  
+        <p style="width:800px">
+            Word size indicates the popularity per year. Word color and rotation illustrate the rate of change from the previous year (green and upward for growing, red and downward for shrinking). Clicking and dragging the circle to scroll, pressing the space bar will play an animation.
         </p>
         <script type="text/javascript">
         dwc.load();
